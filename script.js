@@ -1,39 +1,23 @@
-const questionOne = document.querySelector(".question-one");
-const questionTwo = document.querySelector(".question-two");
-const questionThree = document.querySelector(".question-three");
-const questionFour = document.querySelector(".question-four");
+  const questionTitles = document.querySelectorAll('.question-title');
 
-let number;
+  questionTitles.forEach(questionTitle => {
+    questionTitle.addEventListener('click', () => {
 
-questionOne.addEventListener("click", () => {
-  number = 1;
-  questionAnswer(number)
-});
-questionTwo.addEventListener("click", () => {
-  number = 2;
-  questionAnswer(number)
-});
-questionThree.addEventListener("click", () => {
-  number = 3;
-  questionAnswer(number)
-});
-questionFour.addEventListener("click", () => {
-  number = 4;
-  questionAnswer(number);
-});
+      const index = Array.from(questionTitles).indexOf(questionTitle);
 
-function questionAnswer (number) {
-    if (number === 1 ) {
-        const answer = document.getElementById('one');
-        answer.classList.toggle("visible");
-    } else if (number === 2) {
-        const answer = document.getElementById('two');
-        answer.classList.toggle("visible");
-    } else if (number === 3) {
-        const answer = document.getElementById('three');
-        answer.classList.toggle("visible");
-    } else if (number === 4) {
-        const answer = document.getElementById('four');
-        answer.classList.toggle("visible");
-    }
-}
+      const answer = document.getElementById(`answer${index + 1}`);
+      const icons = questionTitle.querySelectorAll('img');
+
+      if (answer.classList.contains('invisible')) {
+        answer.classList.remove('invisible');
+        answer.classList.add('visible');
+
+      } else {
+        answer.classList.remove('visible');
+        answer.classList.add('invisible');
+      }
+      icons.forEach(icon => icon.classList.toggle('visible'));
+      icons.forEach(icon => icon.classList.toggle('invisible'));          
+    });
+  });
+
