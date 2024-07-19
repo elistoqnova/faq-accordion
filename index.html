@@ -13,15 +13,17 @@
     <title>Frontend Mentor | FAQ accordion</title>
   </head>
   <body>
+
+
     <div class="container">
       <div class="questions-box">
-        <div class="header">
+        <div class="questions-box-header">
           <img src="./icon-star.svg" alt="icon-star" />
           <h1>FAQs</h1>
         </div>
 
         <div class="question-item">
-          <div class="question-title">
+          <div class="question-item-header">
             <h2>What is Frontend Mentor, and how will it help me?</h2>
             <img
               class="visible"
@@ -36,16 +38,18 @@
               alt="icon-minus"
             />
           </div>
-          <p class="invisible" id="answer1">
+          <div class="question-item-body">
+          <p class="item-body-content invisible" id="answer1">
             Frontend Mentor offers realistic coding challenges to help
             developers improve their frontend coding skills with projects in
             HTML, CSS, and JavaScript. It's suitable for all levels and ideal
             for portfolio building.
           </p>
+          </div>
         </div>
 
         <div class="question-item">
-          <div class="question-title">
+          <div class="question-item-header">
             <h2>Is Frontend Mentor free?</h2>
             <img
               class="visible"
@@ -60,15 +64,17 @@
               alt="icon-minus"
             />
           </div>
-          <p class="invisible" id="answer2">
+          <div class="question-item-body">
+          <p class="item-body-content invisible" id="answer2">
             Yes, Frontend Mentor offers both free and premium coding challenges,
             with the free option providing access to a range of projects
             suitable for all skill levels.
           </p>
         </div>
+        </div>
 
         <div class="question-item">
-          <div class="question-title">
+          <div class="question-item-header">
             <h2>Can I use Frontend Mentor projects in my portfolio?</h2>
             <img
               class="visible"
@@ -83,15 +89,17 @@
               alt="icon-minus"
             />
           </div>
-          <p class="invisible" id="answer3">
+          <div class="question-item-body">
+          <p class="item-body-content invisible" id="answer3">
             Yes, you can use projects completed on Frontend Mentor in your
             portfolio. It's an excellent way to showcase your skills to
             potential employers!
           </p>
         </div>
+        </div>
 
         <div class="question-item">
-          <div class="question-title">
+          <div class="question-item-header">
             <h2>How can I get help if I'm stuck on a challenge?</h2>
             <img
               class="visible"
@@ -106,11 +114,13 @@
               alt="icon-minus"
             />
           </div>
-          <p class="invisible" id="answer4">
+          <div class="question-item-body">
+          <p class="item-body-content invisible" id="answer4">
             The best place to get help is inside Frontend Mentor's Discord
             community. There's a help channel where you can ask questions and
             seek support from other community members.
           </p>
+        </div>
         </div>
       </div>
     </div>
@@ -118,3 +128,4 @@
     <script src="./script.js"></script>
   </body>
 </html>
+
