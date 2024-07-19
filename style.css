@@ -1,11 +1,5 @@
-/* The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px */
-
 :root {
   /* colors */
-
   --clr-white: hsl(0, 0%, 100%);
   --clr-pink: hsl(275, 100%, 97%);
   --clr-gpurple: hsl(292, 16%, 49%);
@@ -44,7 +38,8 @@ body {
 }
 
 .container {
-  max-width: 650px;
+  max-width: 90%;
+  max-height: 80%;
 }
 
 .questions-box {
@@ -55,13 +50,13 @@ body {
   box-shadow: 10px 5px 10px 1px rgba(9, 6, 13, 0.3);
 }
 
-.header {
+.questions-box-header {
   display: flex;
   gap: 20px;
   margin-bottom: 30px;
 }
 
-.header h1 {
+.questions-box-header h1 {
   font-size: 3rem;
 }
 
@@ -69,30 +64,31 @@ body {
   border-bottom: 1px solid var(--clr-pink);
 }
 
-.question-title {
+.question-item-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-block: 20px;
   gap: 25px;
+  cursor: pointer;
 }
 
-.question-title h2 {
+.question-item-header h2 {
   font-size: var(--fs-paragraphs);
   font-weight: var(--fw-600);
   font-size: 1rem;
   transition: color 0.3s ease-in-out;
 }
 
-.question-title img.invisible {
+.question-item-header img.invisible {
   display: none;
 }
 
-.question-title img.visible {
+.question-item-header img.visible {
   display: block;
 }
 
-.question-item p {
+.item-body-content {
   margin-bottom: 20px;
   color: var(--clr-gpurple);
   line-height: 25px;
@@ -103,66 +99,37 @@ body {
   border: none;
 }
 
-.question-item:last-of-type > .answer {
-  margin-bottom: 0px;
-}
-
-.question-title:hover {
-  color: #ad28eb;
-  cursor: pointer;
-}
-
 @media (max-width: 375px) {
-  .question-title:hover {
-    color: black;
-  }
-  .container {
-    max-width: 90%;
-    max-height: 90%;
-  }
 
-  .header h1 {
+  .questions-box-header h1 {
     font-size: 1.8rem;
   }
 
-  .question-title h2 {
+  .question-item-header h2 {
     font-size: 0.8rem;
   }
-  .question-item p {
+
+  .item-body-content {
     font-size: 0.62rem;
     line-height: 20px;
   }
 }
 
-@keyframes showAnswer {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 500px; /* adjust as needed */
-    opacity: 1;
+@media (max-width: 1439px) {
+  .question-item-header:hover {
+    color: black;
   }
 }
 
-@keyframes hideAnswer {
-  from {
-    max-height: 100%;
-    opacity: 1;
-  }
-  to {
-    max-height: 0%;
-    opacity: 0;
-  }
+.question-item-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s ease, opacity 1s ease;
 }
 
-p.visible {
-  display: block;
-  animation: showAnswer 0.5s forwards;
-}
-
-p.invisible {
-  display: none;
-  animation: hideAnswer 0.5s forwards;
-
+.question-item-body.visible {
+  max-height: 500px; /* adjust as needed */
+  opacity: 1;
+  transition: max-height 1.5s ease, opacity 1s ease;
 }
