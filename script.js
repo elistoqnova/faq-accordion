@@ -1,23 +1,25 @@
-  const questionTitles = document.querySelectorAll('.question-title');
+const questionItems = document.querySelectorAll(".question-item");
 
-  questionTitles.forEach(questionTitle => {
-    questionTitle.addEventListener('click', () => {
+questionItems.forEach(questionItem => {
+  const header = questionItem.querySelector(".question-item-header");
+  const answer = questionItem.querySelector(".question-item-body");
+  const plusIcon = header.querySelector(".visible");
+  const minusIcon = header.querySelector(".invisible");
 
-      const index = Array.from(questionTitles).indexOf(questionTitle);
-
-      const answer = document.getElementById(`answer${index + 1}`);
-      const icons = questionTitle.querySelectorAll('img');
-
-      if (answer.classList.contains('invisible')) {
-        answer.classList.remove('invisible');
-        answer.classList.add('visible');
-
-      } else {
-        answer.classList.remove('visible');
-        answer.classList.add('invisible');
-      }
-      icons.forEach(icon => icon.classList.toggle('visible'));
-      icons.forEach(icon => icon.classList.toggle('invisible'));          
-    });
+  header.addEventListener("click", () => {
+    if (answer.classList.contains("visible")) {
+      answer.classList.remove("visible");
+      plusIcon.classList.add("visible");
+      plusIcon.classList.remove("invisible");
+      minusIcon.classList.add("invisible");
+      minusIcon.classList.remove("visible");
+    } else {
+      answer.classList.add("visible");
+      plusIcon.classList.remove("visible");
+      plusIcon.classList.add("invisible");
+      minusIcon.classList.remove("invisible");
+      minusIcon.classList.add("visible");
+    }
   });
+});
 
